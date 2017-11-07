@@ -19,6 +19,7 @@ class AppDatabase extends SQLiteOpenHelper {
     public static final String  DATABASE_NAME = "TaskTimer.db";
 
     public static final int DATABASE_VERSION = 1;
+    private static AppDatabase instance = null;
 
 
     // we want only single instance of class to exist, connect to database.
@@ -33,7 +34,11 @@ class AppDatabase extends SQLiteOpenHelper {
      * @return a SQLite database helper Object
      */
     static AppDatabase getInstance(Context context){
-
+        if(instance == null){
+            Log.d(TAG, "getInstance: creating new instance");
+            instance = new AppDatabase(context);
+        }
+        return instance;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
