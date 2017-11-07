@@ -16,7 +16,7 @@ public class TasksContract {
         public static final String TASKS_SORTORDER = "SortOrder";
 
         private Columns(){
-
+            //private constructor to provide instantiation
         }
     }
 
