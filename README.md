@@ -2,7 +2,7 @@
 
 #### Task Timer Application, November 09 2017
 
-##### Usage -  SQLite database, authentication, Data Persistence, saving/retrieval, deletion, Drag/drop from User account. 
+##### Usage -  SQLite database, saving/retrieval, deletion tasks from database. 
 
 #### By Shyamal Punekar
 
@@ -30,7 +30,7 @@ _An Android application where users may create new tasks, edit/delete, see list 
 
 
 # Screenshots
-
+![image of Doctor list-output](https://github.com/shyamalpunekar/task-timer/blob/master/screenshots/task-list-homepage.png)
 
 # Setup
     https://github.com/shyamalpunekar/task-timer
