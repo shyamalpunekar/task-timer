@@ -19,6 +19,8 @@ class AppDatabase extends SQLiteOpenHelper {
     public static final String  DATABASE_NAME = "TaskTimer.db";
 
     public static final int DATABASE_VERSION = 1;
+
+    //// Implement AppDatabase as a Singleton
     private static AppDatabase instance = null;
 
 
@@ -46,12 +48,11 @@ class AppDatabase extends SQLiteOpenHelper {
         String sSQL;
         //sSQL = "CREATE TABLE Tasks (_id INTEGER PRIMARY KEY NOT NULL, Name TEXT NOT NULL, Description TEXT, SortOrder INTEGER, CategoryId INTEGER);";
 
-        sSQL = "CREATE TABLE" + TasksContract.TABLE_NAME + " ("
+        sSQL = "CREATE TABLE " + TasksContract.TABLE_NAME + " ("
                 + TasksContract.Columns._ID + " INTEGER PRIMARY KEY NOT NULL, "
-                + TasksContract.Columns.TASKS_NAME + " TEXT NOT NULL"
-                + TasksContract.Columns.TASKS_DESCRIPTION + " TEXT"
+                + TasksContract.Columns.TASKS_NAME + " TEXT NOT NULL, "
+                + TasksContract.Columns.TASKS_DESCRIPTION + " TEXT, "
                 + TasksContract.Columns.TASKS_SORTORDER + " INTEGER);";
-
         Log.d(TAG, sSQL);
         db.execSQL(sSQL);
 
@@ -60,6 +61,13 @@ class AppDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        Log.d(TAG, "onUpgrade: starts");
+        switch (oldVersion){
+            case 1:
+                break;
+            default:
+                throw new IllegalStateException("onUpgrade() with unknown new version:" + newVersion);
+        }
+        Log.d(TAG, "onUograde ends");
     }
 }
